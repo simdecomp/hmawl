@@ -68,7 +68,7 @@ INCLUDES := -i include/
 
 ASFLAGS := -mgekko -I asm -I include
 LDFLAGS := -map $(MAP) -fp hard -nodefaults
-CFLAGS  := -Cpp_exceptions off -proc gekko -fp hard -O4,p -lang=c -nodefaults -msgstyle gcc $(INCLUDES)
+CFLAGS  := -Cpp_exceptions off -proc gekko -fp hard -O4,p -lang=c++ -nodefaults -msgstyle gcc $(INCLUDES)
 
 # RECIPES
 
