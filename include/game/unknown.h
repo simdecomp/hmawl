@@ -33,3 +33,14 @@ void func_801A81D0(u32* param1, const char* param2);
 void func_8002F340();
 void func_8002F2DC(u32* param);
 void func_8002F39C(struct unknown_8002F39C *param_1,u32 param_2);
+struct unknown_8002F674
+{
+    u8 padding0[0x4];
+    s32 int0x4;
+    u8 padding1[0x1C];
+    u32 int0x24;
+    u8 padding2[0xC];
+    u8 int0x34;
+}; //unknown scruct func_8002F674 uses
+void func_8017E00C(float param_1,u32 *param_2);
+void func_8002F674(struct unknown_8002F674* s,u8 c);
