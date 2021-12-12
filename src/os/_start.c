@@ -8,19 +8,19 @@ void __check_pad3(void) {
   return;
 }
 
-void __set_debug_bba(void)
-{
+void __set_debug_bba(void) {
+
     Debug_BBA = 1;
 }
 
-u8 __get_debug_bba(void)
-{
+u8 __get_debug_bba(void) {
+
     return Debug_BBA;
 }
 
 
-__declspec (weak) asm void __start(void)
-{
+__declspec (weak) asm void __start(void) {
+
     nofralloc
 	  bl __init_registers
     bl __init_hardware
@@ -133,8 +133,8 @@ _goto_skip_init_bba:
 	b exit
 }
 
-asm static void __init_registers(void)
-{
+asm static void __init_registers(void) {
+
 	nofralloc
 	li r0, 0
 	li r3, 0
@@ -177,24 +177,24 @@ asm static void __init_registers(void)
 __declspec(section ".init") extern __rom_copy_info _rom_copy_info[];
 __declspec(section ".init") extern __bss_init_info _bss_init_info[];
 
-inline static void __copy_rom_section(void* dst, const void* src, unsigned long size)
-{
+inline static void __copy_rom_section(void* dst, const void* src, unsigned long size) {
+
 	if (size && (dst != src)) {
 		memcpy(dst, src, size);
 		__flush_cache(dst, size);
 	}
 }
 
-inline static void __init_bss_section(void* dst, unsigned long size)
-{
+inline static void __init_bss_section(void* dst, unsigned long size) {
+
 	if (size) {
 		memset(dst, 0, size);
 	}
 }
 
 #pragma scheduling off
-void __init_data(void)
-{
+void __init_data(void) {
+
     __rom_copy_info *dci;
     __bss_init_info *bii;
 

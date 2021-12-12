@@ -17,8 +17,7 @@ void func_8002F2DC(u32* param) {
     func_801A81D0(&lbl_803490f8,"chanm1_com_eye.tam");
     func_801A81D0(&lbl_803490fc,"chanm1_com_mouth.tam");
 }
-void func_8002F39C(struct unknown_8002F39C *param_1,u32 param_2)
-{
+void func_8002F39C(struct unknown_8002F39C *param_1,u32 param_2) {
   param_1->unk10 = param_2;
   param_1->unk0 = 19;
   param_1->unk4 = 15;

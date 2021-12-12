@@ -74,16 +74,16 @@ int verbosity = 0;
 
 #else
 
-static inline uint32_t swap32(uint32_t v)
-{
+static inline uint32_t swap32(uint32_t v) {
+
 	return (v >> 24) |
 	       ((v >> 8)  & 0x0000FF00) |
 	       ((v << 8)  & 0x00FF0000) |
 	       (v << 24);
 }
 
-static inline uint16_t swap16(uint16_t v)
-{
+static inline uint16_t swap16(uint16_t v) {
+
 	return (v >> 8) | (v << 8);
 }
 
@@ -122,8 +122,8 @@ typedef struct {
 	FILE *elf;
 } DOL_map;
 
-void usage(const char *name)
-{
+void usage(const char *name) {
+
 	fprintf(stderr, "Usage: %s [-h] [-v] [--] elf-file dol-file\n", name);
 	fprintf(stderr, " Convert an ELF file to a DOL file (by segments)\n");
 	fprintf(stderr, " Options:\n");
@@ -134,8 +134,8 @@ void usage(const char *name)
 #define die(x) { fprintf(stderr, x "\n"); exit(1); }
 #define perrordie(x) { perror(x); exit(1); }
 
-void ferrordie(FILE *f, const char *str)
-{
+void ferrordie(FILE *f, const char *str) {
+
 	if(ferror(f)) {
 		fprintf(stderr, "Error while ");
 		perrordie(str);
@@ -148,8 +148,8 @@ void ferrordie(FILE *f, const char *str)
 	}
 }
 
-void add_bss(DOL_map *map, uint32_t paddr, uint32_t memsz)
-{
+void add_bss(DOL_map *map, uint32_t paddr, uint32_t memsz) {
+
 	if(map->flags & HAVE_BSS) {
 		uint32_t curr_start = swap32(map->header.bss_addr);
 		uint32_t curr_size = swap32(map->header.bss_size);
@@ -166,8 +166,8 @@ void add_bss(DOL_map *map, uint32_t paddr, uint32_t memsz)
 	}
 }
 
-void read_elf_segments(DOL_map *map, const char *elf)
-{
+void read_elf_segments(DOL_map *map, const char *elf) {
+
 	int read, i;
 	Elf32_Ehdr ehdr;
 	
@@ -303,8 +303,8 @@ void read_elf_segments(DOL_map *map, const char *elf)
 	}
 }
 
-void map_dol(DOL_map *map)
-{
+void map_dol(DOL_map *map) {
+
 	uint32_t fpos;
 	int i;
 	
@@ -340,8 +340,8 @@ void map_dol(DOL_map *map)
 
 #define BLOCK (1024*1024)
 
-void fcpy(FILE *dst, FILE *src, uint32_t dst_off, uint32_t src_off, uint32_t size)
-{
+void fcpy(FILE *dst, FILE *src, uint32_t dst_off, uint32_t src_off, uint32_t size) {
+
 	int left = size;
 	int read;
 	int written;
@@ -372,8 +372,8 @@ void fcpy(FILE *dst, FILE *src, uint32_t dst_off, uint32_t src_off, uint32_t siz
 	free(blockbuf);
 }
 
-void fpad(FILE *dst, uint32_t dst_off, uint32_t size)
-{
+void fpad(FILE *dst, uint32_t dst_off, uint32_t size) {
+
 	uint32_t i;
 
 	if(fseek(dst, dst_off, SEEK_SET) < 0)
@@ -382,8 +382,8 @@ void fpad(FILE *dst, uint32_t dst_off, uint32_t size)
 		fputc(0, dst);
 }
 
-void write_dol(DOL_map *map, const char *dol)
-{
+void write_dol(DOL_map *map, const char *dol) {
+
 	FILE *dolf;
 	int written;
 	int i;
@@ -448,8 +448,8 @@ void write_dol(DOL_map *map, const char *dol)
 	fclose(dolf);
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
+
 	char **arg;
 
 	if(argc < 2) {

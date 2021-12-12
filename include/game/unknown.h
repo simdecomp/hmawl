@@ -10,8 +10,7 @@ float FLOAT_8034a14c;
 float FLOAT_8034a148;
 double func_8002EC24(int param);
 void func_8002F3E8(u32* param_1, u32 param_2);
-struct unknown_8002F39C
-{
+struct unknown_8002F39C {
     u32 unk0;
     u32 unk4;
     u32 unk8;
@@ -33,8 +32,7 @@ void func_801A81D0(u32* param1, const char* param2);
 void func_8002F340();
 void func_8002F2DC(u32* param);
 void func_8002F39C(struct unknown_8002F39C *param_1,u32 param_2);
-struct unknown_8002F674
-{
+struct unknown_8002F674 {
     u8 padding0[0x4];
     s32 int0x4;
     u8 padding1[0x1C];
@@ -44,3 +42,16 @@ struct unknown_8002F674
 }; //unknown scruct func_8002F674 uses
 void func_8017E00C(float param_1,u32 *param_2);
 void func_8002F674(struct unknown_8002F674* s,u8 c);
+struct unknown_8002F9A8 {
+    u32 unk0; // 0x0
+    s32 *unk1; // 0x4
+    u32 unk2; // 0x8
+}; // unknown struct used by func_8002F9A8
+void func_8017e03c(u32* in);
+void func_8002f9a8(unknown_8002F9A8* unk8002, s32 unkS32);
+struct unknown_8002F9E4 {
+    u8 padding[0x8];
+    u32 unk8;
+}; // unknown struct used by func_8002F9E4
+void func_8002FA0C(unknown_8002F9E4* arg0, s32 arg1);
+void func_8002F9E4(unknown_8002F9E4* arg0, s32 arg1);
